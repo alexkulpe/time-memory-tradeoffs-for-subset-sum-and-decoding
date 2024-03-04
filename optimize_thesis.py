@@ -3933,14 +3933,14 @@ def optimize_subset_sum(depth=4, max_bound=0.29, min_bound=0.09, step_size=0.01,
     """
     Optimization target: HGJ algorithm with BCJ / BBSS representations
 
-    :param depth: integer in [3,10] for BCJ, [4, 9] for BBSS
+    :param depth: integer in [2,10]
     :param max_bound: set maximum memory bound, value between [0,1]
     :param min_bound: set minimum memory bound, value between [0,1]
     :param step_size: set step size for memory bound, value between [0,1]
-    :param number_of_retries: integer between [0, inf]
+    :param number_of_retries: integer between [0, inf)
     :param base_list_alg: Meet-in-the-Middle (MITM), Schroeppel-Shamir (SS) or 7-Dissection (Dissection)
     :param repetition_subtrees: set whether subtrees should be reused
-    :param iters: set how many iterations per try, integer between [0, inf]
+    :param iters: set how many iterations per try, integer between [0, inf)
     """
     algo = globals()["optimize_" + representations + "_" + str(depth)]
     membound = max_bound
@@ -3977,6 +3977,21 @@ def optimize_subset_sum(depth=4, max_bound=0.29, min_bound=0.09, step_size=0.01,
 
 
 def optimize_decoding(k=0.45, w=Hi(1-0.45)/2, depth=2, max_bound=0.06, min_bound=0.00, step_size=0.001, number_of_retries=100, decoding_algorithm="mmt", base_list_alg="MITM", repetition_subtrees=False, iters=10000):
+    """
+    Optimization target: MMT / BJMM algorithm
+
+    :param k: code rate
+    :param w: error weight
+    :param depth: integer in [2,4]
+    :param max_bound: set maximum memory bound, value between [0,1]
+    :param min_bound: set minimum memory bound, value between [0,1]
+    :param step_size: set step size for memory bound, value between [0,1]
+    :param number_of_retries: integer between [0, inf)
+    :param decoding_algorithm: set whether MMT ("mmt") or BJMM ("bjmm") should be used
+    :param base_list_alg: Meet-in-the-Middle (MITM), Schroeppel-Shamir (SS) or 7-Dissection (Dissection)
+    :param repetition_subtrees: set whether subtrees should be reused
+    :param iters: set how many iterations per try, integer between [0, inf)
+    """
     algo = globals()["optimize_" + decoding_algorithm + "_" + str(depth)]
     membound = min_bound
     char = base_list_alg[0]
