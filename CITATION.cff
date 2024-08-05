@@ -1,0 +1,15 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Time-Memory Tradeoffs for Subset Sum and Decoding
+message: >-
+  If you use this dataset, please cite it using the metadata
+  from this file.
+type: dataset
+authors:
+  - given-names: Alexander
+    family-names: Kulpe
+    affiliation: Ruhr University Bochum
+repository-code: >-
+  https://github.com/alexkulpe/time-memory-tradeoffs-for-subset-sum-and-decoding
